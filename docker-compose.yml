@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  cpp:
+    build: .
+    restart: always
+    volumes:
+      - ./:/cpp_problems
+    working_dir: /cpp_problems
+    entrypoint: gdbserver --multi :2345 build/bin/cpp_problems
+    ports:
+      - 2345:2345
